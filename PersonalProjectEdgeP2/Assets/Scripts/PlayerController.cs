@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     private float speed = 10.0f;
     private float turnSpeed = 20.0f;
-    private float zBound = 6;
+    private float xBound = 6;
     private Rigidbody playerRb;
 
     // Start is called before the first frame update
@@ -33,14 +33,14 @@ public class PlayerController : MonoBehaviour
     //constrain player
     void ConstrainPlayerPosition()
     {
-        if (transform.position.z < -zBound)
+        if (transform.position.x < -xBound)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, -zBound);
+            transform.position = new Vector3(-xBound, transform.position.y, transform.position.z);
         }
 
-        if (transform.position.z > zBound)
+        if (transform.position.x > xBound)
         {
-            transform.position = new Vector3(transform.position.x, transform.position.y, zBound);
+            transform.position = new Vector3(xBound, transform.position.y, transform.position.z);
         }
     }
 }
